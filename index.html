@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/styles">
+        <link rel="stylesheet" href="styles/styles.css">
         <title>Tic Tac Toe!</title>
     </head>
     <body>
@@ -11,37 +11,42 @@
             <nav>Welcome players!</nav>
         </main>
         <section class="forms">
-            <form class="container">
+            <div class="container">
                 <div>
                     <label for="first-player">First player:</label>
-                    <input type="text" id="first-player" name="first-player">
+                    <input type="text" id="first-player" name="first-player" required>
                 </div>
                 <div>
                     <label for="second-player">Second player:</label>
-                    <input type="text" id="second-player" name="second-player">
+                    <input type="text" id="second-player" name="second-player" required>
                 </div>
-                <button onclick="playerEntry()"></button>
-            </form>
+                <div>
+                    <button onclick="player_entry()"></button>
+                </div>
+            </div>
         </section>
-        <section class="container">
+        <section class="content">
+            <p id="player-content"></p>
+        </section>
+        <section class="container" id="wrapper">
             <div class="row">
-                <button id="btn-1" class="btn" onclick=""></button>
-                <button id="btn-2" class="btn" onclick=""></button>
-                <button id="btn-3" class="btn" onclick=""></button>
+                <button id="btn-1" class="btn"></button>
+                <button id="btn-2" class="btn"></button>
+                <button id="btn-3" class="btn"></button>
             </div>
             <div class="row">
-                <button id="btn-4" class="btn" onclick=""></button>
-                <button id="btn-5" class="btn" onclick=""></button>
-                <button id="btn-6" class="btn" onclick=""></button>
+                <button id="btn-4" class="btn"></button>
+                <button id="btn-5" class="btn"></button>
+                <button id="btn-6" class="btn"></button>
             </div>
             <div class="row">
-                <button id="btn-7" class="btn" onclick=""></button>
-                <button id="btn-8" class="btn" onclick=""></button>
-                <button id="btn-9" class="btn" onclick=""></button>
+                <button id="btn-7" class="btn"></button>
+                <button id="btn-8" class="btn"></button>
+                <button id="btn-9" class="btn"></button>
 
             </div>
         </section>
-        
+
     </body>
     <script src="scripts/script.js"></script>
 </html>
