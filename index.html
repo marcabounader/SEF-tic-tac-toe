@@ -7,21 +7,37 @@
         <title>Tic Tac Toe!</title>
     </head>
     <body>
+        <main>
+            <nav>Welcome players!</nav>
+        </main>
+        <section class="forms">
+            <form class="container">
+                <div>
+                    <label for="first-player">First player:</label>
+                    <input type="text" id="first-player" name="first-player">
+                </div>
+                <div>
+                    <label for="second-player">Second player:</label>
+                    <input type="text" id="second-player" name="second-player">
+                </div>
+                <button onclick="playerEntry()"></button>
+            </form>
+        </section>
         <section class="container">
             <div class="row">
-                <button id="btn-1"></button>
-                <button id="btn-2"></button>
-                <button id="btn-3"></button>
+                <button id="btn-1" class="btn" onclick=""></button>
+                <button id="btn-2" class="btn" onclick=""></button>
+                <button id="btn-3" class="btn" onclick=""></button>
             </div>
             <div class="row">
-                <button id="btn-4"></button>
-                <button id="btn-5"></button>
-                <button id="btn-6"></button>
+                <button id="btn-4" class="btn" onclick=""></button>
+                <button id="btn-5" class="btn" onclick=""></button>
+                <button id="btn-6" class="btn" onclick=""></button>
             </div>
             <div class="row">
-                <button id="btn-7"></button>
-                <button id="btn-8"></button>
-                <button id="btn-9"></button>
+                <button id="btn-7" class="btn" onclick=""></button>
+                <button id="btn-8" class="btn" onclick=""></button>
+                <button id="btn-9" class="btn" onclick=""></button>
 
             </div>
         </section>
