@@ -7,11 +7,11 @@
         <title>Tic Tac Toe!</title>
     </head>
     <body>
-        <main>
-            <nav>Welcome players!</nav>
-        </main>
+        <header>
+            <h1>Welcome SEF!</h1>
+        </header>
         <section class="forms">
-            <div class="container">
+            <div class="container-1">
                 <div>
                     <label for="first-player">First player:</label>
                     <input type="text" id="first-player" name="first-player" required>
@@ -21,14 +21,21 @@
                     <input type="text" id="second-player" name="second-player" required>
                 </div>
                 <div>
-                    <button onclick="player_entry()"></button>
+                    <button onclick="player_entry()" id="submit-button">Submit Players</button>
+                    <button onclick="clear_session()" id="clear-button">Clear</button>
+
                 </div>
             </div>
         </section>
         <section class="content">
-            <p id="player-content"></p>
+            <div class="player-list"></div>
+            <div>
+                <p id="player-1"></p>
+                <p id="player-2"></p>
+            </div>
+            <p id="result">Please enter player names.</p>
         </section>
-        <section class="container" id="wrapper">
+        <section class="container-2" id="wrapper">
             <div class="row">
                 <button id="btn-1" class="btn"></button>
                 <button id="btn-2" class="btn"></button>
