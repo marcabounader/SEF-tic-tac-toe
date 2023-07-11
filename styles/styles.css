@@ -6,7 +6,51 @@
 .row{
     display:flex;
     flex-direction:row;
+    justify-content: center;
 }
 .btn{
+    width:100px;
+    height:100px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 50px;
+}
 
+.btn.active-1{
+    background-color:red;
+}
+.btn.active-2{
+    background-color: blue;
+}
+.btn:hover{
+    background-color: aqua;
+}
+
+#btn-2{
+    border-left:3px solid black;
+    border-right:3px solid black;
+
+}
+
+#btn-4{
+    border-top:3px solid black;
+    border-bottom:3px solid black;
+
+}
+
+#btn-5{
+    border-top:3px solid black;
+    border-bottom:3px solid black;
+    border-left:3px solid black;
+    border-right:3px solid black;
+}
+
+#btn-6{
+    border-top:3px solid black;
+    border-bottom:3px solid black;
+}
+
+#btn-8{
+    border-left:3px solid black;
+    border-right:3px solid black;
 }
