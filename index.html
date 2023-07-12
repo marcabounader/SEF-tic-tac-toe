@@ -11,47 +11,71 @@
             <h1>Welcome SEF!</h1>
         </header>
         <section class="forms">
-            <div class="container-1">
+            <div class="container">
                 <div>
-                    <label for="first-player">First player:</label>
                     <input type="text" id="first-player" name="first-player" required>
+                    <label for="first-player">First player</label>
                 </div>
                 <div>
-                    <label for="second-player">Second player:</label>
                     <input type="text" id="second-player" name="second-player" required>
+                    <label for="second-player">Second player</label>
                 </div>
                 <div>
                     <button onclick="player_entry()" id="submit-button">Submit Players</button>
                     <button onclick="clear_session()" id="clear-button">Clear</button>
 
                 </div>
+                <div class="container-1">
+                    <div class="content">
+                        <div class="player-list"></div>
+                        <div>
+                            <p id="player-1"></p>
+                            <p id="player-2"></p>
+                        </div>
+                        <div class="score">
+                            <h3 id="result">Please enter player names.</h3>
+                        </div>
+                        <div class="score-display">
+                            <div class="score-display-1">
+                                <h3>Player one: <span  id="first-name"></span></h3>
+                                <h3>Score: <span id="first-score"></span></h3>
+                            </div>
+                            <div class="score-display-2">
+                                <h3>Player two: <span id="second-name"></span></h3>
+                                <h3>Score: <span id="second-score"></span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="content">
-            <div class="player-list"></div>
-            <div>
-                <p id="player-1"></p>
-                <p id="player-2"></p>
+        <section class="container-2">
+            <svg height="210" width="500">
+                <line x1="0" y1="0" x2="200" y2="200" style="position:absolute;stroke:rgb(255,0,0);stroke-width:2" />
+            </svg>
+            <div class="game-container"  id="wrapper">
+                <div class="row">
+                    <button id="btn-1" class="btn"></button>
+                    <button id="btn-2" class="btn"></button>
+                    <button id="btn-3" class="btn"></button>
+                </div>
+                <div class="row">
+                    <button id="btn-4" class="btn"></button>
+                    <button id="btn-5" class="btn"></button>
+                    <button id="btn-6" class="btn"></button>
+                </div>
+                <div class="row">
+                    <button id="btn-7" class="btn"></button>
+                    <button id="btn-8" class="btn"></button>
+                    <button id="btn-9" class="btn"></button>
+    
+                </div>
             </div>
-            <p id="result">Please enter player names.</p>
-        </section>
-        <section class="container-2" id="wrapper">
-            <div class="row">
-                <button id="btn-1" class="btn"></button>
-                <button id="btn-2" class="btn"></button>
-                <button id="btn-3" class="btn"></button>
+            <div class="row-buttons" id="button">
+                <button onclick="play_again()">Play Again</button>
+                <button onclick="reset()">Reset Game</button>
             </div>
-            <div class="row">
-                <button id="btn-4" class="btn"></button>
-                <button id="btn-5" class="btn"></button>
-                <button id="btn-6" class="btn"></button>
-            </div>
-            <div class="row">
-                <button id="btn-7" class="btn"></button>
-                <button id="btn-8" class="btn"></button>
-                <button id="btn-9" class="btn"></button>
 
-            </div>
         </section>
 
     </body>

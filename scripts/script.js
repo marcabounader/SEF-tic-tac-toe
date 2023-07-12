@@ -1,78 +1,146 @@
 var player=0;
 var tie=false;
-
-btn_1 = document.getElementById("btn-1");
-btn_2 = document.getElementById("btn-2");
-btn_3 = document.getElementById("btn-3");
-btn_4 = document.getElementById("btn-4");
-btn_5 = document.getElementById("btn-5");
-btn_6 = document.getElementById("btn-6");
-btn_7 = document.getElementById("btn-7");
-btn_8 = document.getElementById("btn-8");
-btn_9 = document.getElementById("btn-9");
-
+var btn_1 = document.getElementById("btn-1");
+var btn_2 = document.getElementById("btn-2");
+var btn_3 = document.getElementById("btn-3");
+var btn_4 = document.getElementById("btn-4");
+var btn_5 = document.getElementById("btn-5");
+var btn_6 = document.getElementById("btn-6");
+var btn_7 = document.getElementById("btn-7");
+var btn_8 = document.getElementById("btn-8");
+var btn_9 = document.getElementById("btn-9");
+var name_1_display= document.getElementById("first-name");
+var name_2_display= document.getElementById("second-name");
+var first_score=document.getElementById("first-score");
+var second_score=document.getElementById("second-score");
+var count_score_1=0;
+var count_score_2=0;
 
 get_player_one = () => sessionStorage.getItem('player_one');
 
 get_player_two = () => sessionStorage.getItem('player_two');
+
 player_entry = () =>{
     sessionStorage.setItem('player_one',document.getElementById('first-player').value);
     sessionStorage.setItem('player_two',document.getElementById('second-player').value);
     if (!get_player_one() || !get_player_two()){
         document.getElementById('result').innerText=`Please enter the player names to proceed`;
     } else{
+        btn_1.disabled = false;
+        btn_2.disabled = false;
+        btn_3.disabled = false;
+        btn_4.disabled = false;
+        btn_5.disabled = false;
+        btn_6.disabled = false;
+        btn_7.disabled = false;
+        btn_8.disabled = false;
+        btn_9.disabled = false;
+        btn_1.innerText = '';
+        btn_2.innerText = '';
+        btn_3.innerText = '';
+        btn_4.innerText = '';
+        btn_5.innerText = '';
+        btn_6.innerText = '';
+        btn_7.innerText = '';
+        btn_8.innerText = '';
+        btn_9.innerText = '';
+        name_1_display.innerText=get_player_one();
+        name_2_display.innerText=get_player_two();
         document.getElementById('result').innerText=`${get_player_one()}'s turn!`;
         document.getElementById('first-player').value="";
         document.getElementById('second-player').value="";
+        first_score.innerText='0';
+        second_score.innerText='0';
+        count_score_1=0;
+        count_score_2=0;
     }
 };
 
 clear_session = () =>{
-    sessionStorage.clear;
     document.getElementById('first-player').value="";
     document.getElementById('second-player').value="";
 }
-player_victory = () => {
-    btn_1_value = document.getElementById("btn-1").innerText;
-    btn_2_value = document.getElementById("btn-2").innerText;
-    btn_3_value = document.getElementById("btn-3").innerText;
-    btn_4_value = document.getElementById("btn-4").innerText;
-    btn_5_value = document.getElementById("btn-5").innerText;
-    btn_6_value = document.getElementById("btn-6").innerText;
-    btn_7_value = document.getElementById("btn-7").innerText;
-    btn_8_value = document.getElementById("btn-8").innerText;
-    btn_9_value = document.getElementById("btn-9").innerText;
 
-    if ((btn_1_value == 'x' || btn_1_value == 'X') && (btn_2_value == 'x' ||
-    btn_2_value == 'X') && (btn_3_value == 'x' || btn_3_value == 'X')) {
+reset = () => {
+    btn_1.disabled = false;
+    btn_2.disabled = false;
+    btn_3.disabled = false;
+    btn_4.disabled = false;
+    btn_5.disabled = false;
+    btn_6.disabled = false;
+    btn_7.disabled = false;
+    btn_8.disabled = false;
+    btn_9.disabled = false;
+    btn_1.innerText = '';
+    btn_2.innerText = '';
+    btn_3.innerText = '';
+    btn_4.innerText = '';
+    btn_5.innerText = '';
+    btn_6.innerText = '';
+    btn_7.innerText = '';
+    btn_8.innerText = '';
+    btn_9.innerText = '';
+    first_score.innerText='';
+    second_score.innerText='';
+    count_score_1=0;
+    count_score_2=0;
+    document.getElementById('result').innerText=`${get_player_one()}'s turn!`;
+    player=0;
+}
+play_again = () => {
+    btn_1.disabled = false;
+    btn_2.disabled = false;
+    btn_3.disabled = false;
+    btn_4.disabled = false;
+    btn_5.disabled = false;
+    btn_6.disabled = false;
+    btn_7.disabled = false;
+    btn_8.disabled = false;
+    btn_9.disabled = false;
+    btn_1.innerText = '';
+    btn_2.innerText = '';
+    btn_3.innerText = '';
+    btn_4.innerText = '';
+    btn_5.innerText = '';
+    btn_6.innerText = '';
+    btn_7.innerText = '';
+    btn_8.innerText = '';
+    btn_9.innerText = '';
+    document.getElementById('result').innerText=`${get_player_one()}'s turn!`;
+    player=0;
+}
+player_victory = () => {
+
+    if ((btn_1.innerText == 'x' || btn_1.innerText == 'X') && (btn_2.innerText == 'x' ||
+    btn_2.innerText == 'X') && (btn_3.innerText == 'x' || btn_3.innerText == 'X')) {
     btn_4.disabled = true;
     btn_5.disabled = true;
     btn_6.disabled = true;
     btn_7.disabled = true;
     btn_8.disabled = true;
     btn_9.disabled = true;
-    btn_1.style.color = "red";
-    btn_2.style.color = "red";
-    btn_3.style.color = "red";
+    btn_1.style.color = "orange";
+    btn_2.style.color = "orange";
+    btn_3.style.color = "orange";
     return true;
 }
-else if ((btn_1_value == 'x' || btn_1_value == 'X') && (btn_4_value == 'x' ||
-    btn_4_value == 'X') && (btn_7_value == 'x' || btn_7_value == 'X')) {
+else if ((btn_1.innerText == 'x' || btn_1.innerText == 'X') && (btn_4.innerText == 'x' ||
+    btn_4.innerText == 'X') && (btn_7.innerText == 'x' || btn_7.innerText == 'X')) {
     btn_2.disabled = true;
     btn_3.disabled = true;
     btn_5.disabled = true;
     btn_6.disabled = true;
     btn_8.disabled = true;
     btn_9.disabled = true;
-    btn_1.style.color = "red";
-    btn_4.style.color = "red";
-    btn_7.style.color = "red";
+    btn_1.style.color = "orange";
+    btn_4.style.color = "orange";
+    btn_7.style.color = "orange";
     console.log('marc');
     return true;
 
 }
-else if ((btn_7_value == 'x' || btn_7_value == 'X') && (btn_8_value == 'x' ||
-    btn_8_value == 'X') && (btn_9_value == 'x' || btn_9_value == 'X')) {
+else if ((btn_7.innerText == 'x' || btn_7.innerText == 'X') && (btn_8.innerText == 'x' ||
+    btn_8.innerText == 'X') && (btn_9.innerText == 'x' || btn_9.innerText == 'X')) {
 
     btn_1.disabled = true;
     btn_2.disabled = true;
@@ -80,14 +148,14 @@ else if ((btn_7_value == 'x' || btn_7_value == 'X') && (btn_8_value == 'x' ||
     btn_4.disabled = true;
     btn_5.disabled = true;
     btn_6.disabled = true;
-    btn_7.style.color = "red";
-    btn_8.style.color = "red";
-    btn_9.style.color = "red";
+    btn_7.style.color = "orange";
+    btn_8.style.color = "orange";
+    btn_9.style.color = "orange";
     return true;
 
 }
-else if ((btn_3_value == 'x' || btn_3_value == 'X') && (btn_6_value == 'x' ||
-    btn_6_value == 'X') && (btn_9_value == 'x' || btn_9_value == 'X')) {
+else if ((btn_3.innerText == 'x' || btn_3.innerText == 'X') && (btn_6.innerText == 'x' ||
+    btn_6.innerText == 'X') && (btn_9.innerText == 'x' || btn_9.innerText == 'X')) {
 
     btn_1.disabled = true;
     btn_2.disabled = true;
@@ -95,111 +163,111 @@ else if ((btn_3_value == 'x' || btn_3_value == 'X') && (btn_6_value == 'x' ||
     btn_5.disabled = true;
     btn_7.disabled = true;
     btn_8.disabled = true;
-    btn_3.style.color = "red";
-    btn_6.style.color = "red";
-    btn_9.style.color = "red";
+    btn_3.style.color = "orange";
+    btn_6.style.color = "orange";
+    btn_9.style.color = "orange";
     return true;
 
 }
-else if ((btn_1_value == 'x' || btn_1_value == 'X') && (btn_5_value == 'x' ||
-    btn_5_value == 'X') && (btn_9_value == 'x' || btn_9_value == 'X')) {
+else if ((btn_1.innerText == 'x' || btn_1.innerText == 'X') && (btn_5.innerText == 'x' ||
+    btn_5.innerText == 'X') && (btn_9.innerText == 'x' || btn_9.innerText == 'X')) {
     btn_2.disabled = true;
     btn_3.disabled = true;
     btn_4.disabled = true;
     btn_6.disabled = true;
     btn_7.disabled = true;
     btn_8.disabled = true;
-    btn_1.style.color = "red";
-    btn_5.style.color = "red";
-    btn_9.style.color = "red";
+    btn_1.style.color = "orange";
+    btn_5.style.color = "orange";
+    btn_9.style.color = "orange";
     return true;
 
 }
-else if ((btn_3_value == 'x' || btn_3_value == 'X') && (btn_5_value == 'x' ||
-    btn_5_value == 'X') && (btn_7_value == 'x' || btn_7_value == 'X')) {
+else if ((btn_3.innerText == 'x' || btn_3.innerText == 'X') && (btn_5.innerText == 'x' ||
+    btn_5.innerText == 'X') && (btn_7.innerText == 'x' || btn_7.innerText == 'X')) {
     btn_1.disabled = true;
     btn_2.disabled = true;
     btn_4.disabled = true;
     btn_6.disabled = true;
     btn_8.disabled = true;
     btn_9.disabled = true;
-    btn_3.style.color = "red";
-    btn_5.style.color = "red";
-    btn_7.style.color = "red";
+    btn_3.style.color = "orange";
+    btn_5.style.color = "orange";
+    btn_7.style.color = "orange";
     return true;
 
 }
-else if ((btn_2_value == 'x' || btn_2_value == 'X') && (btn_5_value == 'x' ||
-    btn_5_value == 'X') && (btn_8_value == 'x' || btn_8_value == 'X')) {
+else if ((btn_2.innerText == 'x' || btn_2.innerText == 'X') && (btn_5.innerText == 'x' ||
+    btn_5.innerText == 'X') && (btn_8.innerText == 'x' || btn_8.innerText == 'X')) {
     btn_1.disabled = true;
     btn_2.disabled = true;
     btn_4.disabled = true;
     btn_6.disabled = true;
     btn_7.disabled = true;
     btn_9.disabled = true;
-    btn_2.style.color = "red";
-    btn_5.style.color = "red";
-    btn_8.style.color = "red";
+    btn_2.style.color = "orange";
+    btn_5.style.color = "orange";
+    btn_8.style.color = "orange";
     return true;
 }
-else if ((btn_4_value == 'x' || btn_4_value == 'X') && (btn_5_value == 'x' ||
-    btn_5_value == 'X') && (btn_6_value == 'x' || btn_6_value == 'X')) {
+else if ((btn_4.innerText == 'x' || btn_4.innerText == 'X') && (btn_5.innerText == 'x' ||
+    btn_5.innerText == 'X') && (btn_6.innerText == 'x' || btn_6.innerText == 'X')) {
     btn_1.disabled = true;
     btn_2.disabled = true;
     btn_3.disabled = true;
     btn_7.disabled = true;
     btn_8.disabled = true;
     btn_9.disabled = true;
-    btn_4.style.color = "red";
-    btn_5.style.color = "red";
-    btn_6.style.color = "red";
+    btn_4.style.color = "orange";
+    btn_5.style.color = "orange";
+    btn_6.style.color = "orange";
     return true;
 
 }
 
-else if ((btn_1_value == '0' || btn_1_value == '0') && (btn_2_value == '0' ||
-    btn_2_value == '0') && (btn_3_value == '0' || btn_3_value == '0')) {
+else if ((btn_1.innerText == '0' || btn_1.innerText == '0') && (btn_2.innerText == '0' ||
+    btn_2.innerText == '0') && (btn_3.innerText == '0' || btn_3.innerText == '0')) {
     btn_4.disabled = true;
     btn_5.disabled = true;
     btn_6.disabled = true;
     btn_7.disabled = true;
     btn_8.disabled = true;
     btn_9.disabled = true;
-    btn_1.style.color = "red";
-    btn_2.style.color = "red";
-    btn_3.style.color = "red";
+    btn_1.style.color = "orange";
+    btn_2.style.color = "orange";
+    btn_3.style.color = "orange";
     return true;
 
 }
-else if ((btn_1_value == '0' || btn_1_value == '0') && (btn_4_value == '0' ||
-    btn_4_value == '0') && (btn_7_value == '0' || btn_7_value == '0')) {
+else if ((btn_1.innerText == '0' || btn_1.innerText == '0') && (btn_4.innerText == '0' ||
+    btn_4.innerText == '0') && (btn_7.innerText == '0' || btn_7.innerText == '0')) {
     btn_2.disabled = true;
     btn_3.disabled = true;
     btn_5.disabled = true;
     btn_6.disabled = true;
     btn_8.disabled = true;
     btn_9.disabled = true;
-    btn_1.style.color = "red";
-    btn_4.style.color = "red";
-    btn_7.style.color = "red";
+    btn_1.style.color = "orange";
+    btn_4.style.color = "orange";
+    btn_7.style.color = "orange";
     return true;
 }
-else if ((btn_7_value == '0' || btn_7_value == '0') && (btn_8_value == '0' ||
-    btn_8_value == '0') && (btn_9_value == '0' || btn_9_value == '0')) {
+else if ((btn_7.innerText == '0' || btn_7.innerText == '0') && (btn_8.innerText == '0' ||
+    btn_8.innerText == '0') && (btn_9.innerText == '0' || btn_9.innerText == '0')) {
     btn_1.disabled = true;
     btn_2.disabled = true;
     btn_3.disabled = true;
     btn_4.disabled = true;
     btn_5.disabled = true;
     btn_6.disabled = true;
-    btn_7.style.color = "red";
-    btn_8.style.color = "red";
-    btn_9.style.color = "red";
+    btn_7.style.color = "orange";
+    btn_8.style.color = "orange";
+    btn_9.style.color = "orange";
     return true;
 
 }
-else if ((btn_3_value == '0' || btn_3_value == '0') && (btn_6_value == '0' ||
-    btn_6_value == '0') && (btn_9_value == '0' || btn_9_value == '0')) {
+else if ((btn_3.innerText == '0' || btn_3.innerText == '0') && (btn_6.innerText == '0' ||
+    btn_6.innerText == '0') && (btn_9.innerText == '0' || btn_9.innerText == '0')) {
 
     btn_1.disabled = true;
     btn_2.disabled = true;
@@ -207,14 +275,14 @@ else if ((btn_3_value == '0' || btn_3_value == '0') && (btn_6_value == '0' ||
     btn_5.disabled = true;
     btn_7.disabled = true;
     btn_8.disabled = true;
-    btn_3.style.color = "red";
-    btn_6.style.color = "red";
-    btn_9.style.color = "red";
+    btn_3.style.color = "orange";
+    btn_6.style.color = "orange";
+    btn_9.style.color = "orange";
     return true;
 
 }
-else if ((btn_1_value == '0' || btn_1_value == '0') && (btn_5_value == '0' ||
-    btn_5_value == '0') && (btn_9_value == '0' || btn_9_value == '0')) {
+else if ((btn_1.innerText == '0' || btn_1.innerText == '0') && (btn_5.innerText == '0' ||
+    btn_5.innerText == '0') && (btn_9.innerText == '0' || btn_9.innerText == '0')) {
 
     btn_2.disabled = true;
     btn_3.disabled = true;
@@ -222,62 +290,62 @@ else if ((btn_1_value == '0' || btn_1_value == '0') && (btn_5_value == '0' ||
     btn_6.disabled = true;
     btn_7.disabled = true;
     btn_8.disabled = true;
-    btn_1.style.color = "red";
-    btn_5.style.color = "red";
-    btn_9.style.color = "red";
+    btn_1.style.color = "orange";
+    btn_5.style.color = "orange";
+    btn_9.style.color = "orange";
     return true;
 
 }
-else if ((btn_3_value == '0' || btn_3_value == '0') && (btn_5_value == '0' ||
-    btn_5_value == '0') && (btn_7_value == '0' || btn_7_value == '0')) {
+else if ((btn_3.innerText == '0' || btn_3.innerText == '0') && (btn_5.innerText == '0' ||
+    btn_5.innerText == '0') && (btn_7.innerText == '0' || btn_7.innerText == '0')) {
     btn_1.disabled = true;
     btn_2.disabled = true;
     btn_4.disabled = true;
     btn_6.disabled = true;
     btn_8.disabled = true;
     btn_9.disabled = true;
-    btn_3.style.color = "red";
-    btn_5.style.color = "red";
-    btn_7.style.color = "red";
+    btn_3.style.color = "orange";
+    btn_5.style.color = "orange";
+    btn_7.style.color = "orange";
     return true;
 
 }
-else if ((btn_2_value == '0' || btn_2_value == '0') && (btn_5_value == '0' ||
-    btn_5_value == '0') && (btn_8_value == '0' || btn_8_value == '0')) {
+else if ((btn_2.innerText == '0' || btn_2.innerText == '0') && (btn_5.innerText == '0' ||
+    btn_5.innerText == '0') && (btn_8.innerText == '0' || btn_8.innerText == '0')) {
     btn_1.disabled = true;
     btn_3.disabled = true;
     btn_4.disabled = true;
     btn_6.disabled = true;
     btn_7.disabled = true;
     btn_9.disabled = true;
-    btn_2.style.color = "red";
-    btn_5.style.color = "red";
-    btn_8.style.color = "red";
+    btn_2.style.color = "orange";
+    btn_5.style.color = "orange";
+    btn_8.style.color = "orange";
     return true;
 
 }
-else if ((btn_4_value == '0' || btn_4_value == '0') && (btn_5_value == '0' ||
-    btn_5_value == '0') && (btn_6_value == '0' || btn_6_value == '0')) {
+else if ((btn_4.innerText == '0' || btn_4.innerText == '0') && (btn_5.innerText == '0' ||
+    btn_5.innerText == '0') && (btn_6.innerText == '0' || btn_6.innerText == '0')) {
     btn_1.disabled = true;
     btn_2.disabled = true;
     btn_3.disabled = true;
     btn_7.disabled = true;
     btn_8.disabled = true;
     btn_9.disabled = true;
-    btn_4.style.color = "red";
-    btn_5.style.color = "red";
-    btn_6.style.color = "red";
+    btn_4.style.color = "orange";
+    btn_5.style.color = "orange";
+    btn_6.style.color = "orange";
     return true;
 
 }
 
 
-else if((btn_1_value == 'X' || btn_1_value == '0') && (btn_2_value == 'X'
-    || btn_2_value == '0') && (btn_3_value == 'X' || btn_3_value == '0') &&
-    (btn_4_value == 'X' || btn_4_value == '0') && (btn_5_value == 'X' ||
-    btn_5_value == '0') && (btn_6_value == 'X' || btn_6_value == '0') &&
-    (btn_7_value == 'X' || btn_7_value == '0') && (btn_8_value == 'X' ||
-    btn_8_value == '0') && (btn_9_value == 'X' || btn_9_value == '0')) {
+else if((btn_1.innerText == 'X' || btn_1.innerText == '0') && (btn_2.innerText == 'X'
+    || btn_2.innerText == '0') && (btn_3.innerText == 'X' || btn_3.innerText == '0') &&
+    (btn_4.innerText == 'X' || btn_4.innerText == '0') && (btn_5.innerText == 'X' ||
+    btn_5.innerText == '0') && (btn_6.innerText == 'X' || btn_6.innerText == '0') &&
+    (btn_7.innerText == 'X' || btn_7.innerText == '0') && (btn_8.innerText == 'X' ||
+    btn_8.innerText == '0') && (btn_9.innerText == 'X' || btn_9.innerText == '0')) {
     tie=true;
     return false;
 }
@@ -292,7 +360,7 @@ document.getElementById('wrapper').addEventListener('click', (e) =>{
         player = 1;
         if (player_victory()){
             document.getElementById('result').innerText=`${get_player_one()} won!`;
-            sessionStorage.clear();
+            first_score.innerText=++count_score_1;
         }
         else if(tie){
             sessionStorage.clear();
@@ -308,7 +376,7 @@ document.getElementById('wrapper').addEventListener('click', (e) =>{
         player = 0;
         if (player_victory()){
             document.getElementById('result').innerText=`${get_player_two()} won!`;
-            sessionStorage.clear();
+            second_score.innerText=++count_score_2;
         } else if (tie){
             sessionStorage.clear();
             document.getElementById('result').innerText='Tie!';
