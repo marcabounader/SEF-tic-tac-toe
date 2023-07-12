@@ -19,6 +19,8 @@ button{
     height:20px;
     font-size:10px;
     cursor: pointer;
+    background-color: rgba(0, 255, 255, 0.402);
+    border:0px;
 }
 
 .forms{
