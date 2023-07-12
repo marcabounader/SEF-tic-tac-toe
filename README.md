@@ -1,5 +1,13 @@
 # SEF-tic-tac-toe
 
+## Features
+* Players play against each other and have turns
+* Can play again and increment scores
+* Can reset the game and play again
+* Can change players and play again
+* Colors change according to the clicks and wins, and a lign is drawn when there is a win
+
+  
 ## Main page
 ![image](https://github.com/marcabounader92/SEF-tic-tac-toe/assets/63245564/58d78495-dc59-4001-bc31-e8ff5a562e73)
 
